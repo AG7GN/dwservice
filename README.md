@@ -1,6 +1,8 @@
 # Computer Remote Control using DWService 
 
-VERSION 20200412
+VERSION: 20200412
+
+AUTHOR: Steve Magnuson, AG7GN
 
 DWService is an open source project which offers a service that allows access to remote systems (Windows, Mac, Linux, Raspberry...) using a standard web browser - without any special software required on the client side.
 Wherever you may be in the world, you may need to access your home computer.  You can start the web browser from any device to connect to DWService website and immediately gain control of the computer (Screen + Files + Running processes).
@@ -49,7 +51,7 @@ In this document, the client refers to the computer controlling the server.  In 
 	
 1. __If you aren't interested in remotely controlling your own computers, you can skip to the [Access and Control Remote Computers](#access-and-control-remote-computers) section in this document.__  
 
-#### Create Agents
+#### (Optional) Create Agents
 
 1. If you aren't already, log in to [DWService](https://www.dwservice.net/en/home.html).
 1. On your Home page, click __Agents__.  
@@ -174,9 +176,21 @@ This section describes how to access and control remote computers using the DWSe
 	
 		The Agent(s) the other user shared with you should be listed there, and if the DWAgent is running on that remote computer, the Agent box should say _Available_. You can now remotely connect to that computer. More than one Agent may be listed if the other user shared a group with multiple computers. If the Agent on the remote computer is not running, it will show up as _Unavailable_ in your DWService Incoming Shares web page.
 
-1. Locate the computer you want to control under __Agents__ or __Incoming Shares__.  Make sure it's status is _Available_.
-1. Click on the Agent's name.  You'll see several tiles.  Click the __Screen__ tile.
-1. After a few seconds, the screen of the remote computer should appear in your browser.
-1. There are some controls at the top that allow you to make the remote computer's screen full screen on your computer, select a different display on the remote computer (if the remote computer has more than one monitor), among other things.  Hover your mouse over these controls to see what they do.
-1. To exit a remote control session, click on the __circle with the arrow__ icon in the upper right corner.
+1. Locate the computer you want to control under __Agents__ (for your own computers) or __Incoming Shares__ (for computers shared with you).  Make sure it's status is _Available_.
+1. Click on the Agent's name.  You'll see 2 tiles:  __Files and Folders__ and __Screen__.
 
+	- __Screen__
+	
+		1.	Click the __Screen__ tile.
+		1. After a few seconds, the screen of the remote computer should appear in your browser.
+		1. There are some controls at the top that allow you to make the remote computer's screen full screen on your computer, select a different display on the remote computer (if the remote computer has more than one monitor), among other things.  Hover your mouse over these controls to see what they do.
+		1. To exit a remote control session, click on the __circle with the arrow__ icon in the upper right corner.
+
+	- __Files and Folders__
+
+		1. Click the __Files and Folders__ tile.
+		1. You now have access to the files and folders of the remote computer.  PLEASE BE CAREFUL not to delete any folders or files unless they are your own.
+		1. You can navigate into any folder, at which time you'll see some new icons appear near the top of the page.  The two cloud icons allow you to transfer files between your PC and the remote computer.  The Cloud icon with the Up arrow allows you to upload files TO the remote computer.  The Cloud icon with the Down arrow allows you to download files FROM the remote computer.  Again, be careful not to delete any files that are not your own.
+		1. To exit a remote control session, click on the __circle with the arrow__ icon in the upper right corner.
+		
+1. At any time, you can return to the top level page for this remote computer by clicking the blue tile with the 9 dots in the upper left.
