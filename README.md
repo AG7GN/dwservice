@@ -1,5 +1,7 @@
 # Computer Remote Control using DWService 
 
+VERSION 20200412
+
 DWService is an open source project which offers a service that allows access to remote systems (Windows, Mac, Linux, Raspberry...) using a standard web browser - without any special software required on the client side.
 Wherever you may be in the world, you may need to access your home computer.  You can start the web browser from any device to connect to DWService website and immediately gain control of the computer (Screen + Files + Running processes).
 
@@ -43,9 +45,9 @@ In this document, the client refers to the computer controlling the server.  In 
 
 1. (__Optional__) Send your account email address to w7ecg.wecg@gmail.com. 
 
-	If you want to be added to the WECG group, which allows you to control certain computers managed by WECG, email the email address you used for your DWService account to __w7ecg.wecg@gmail.com__.  You'll get a reply from w7ecg.wecg@gmail.com with information about accessing/controlling WECG computers.  
+	If you want to be added to the WECG group, which allows you to control certain computers managed by WECG, email the email address you used for your DWService account to __w7ecg.wecg@gmail.com__.  You'll get a reply from w7ecg.wecg@gmail.com with information about accessing/controlling WECG computers.  Note that this is NOT an automated reply!  It might take a day or 2 for me to check the account and add you to the group, so don't expect an immediate email reply. 
 	
-1. If you aren't interested in remotely controlling your own computers, you can skip to the [Access and Control Remote Computers](#access-and-control-remote-computers) section in this document.  
+1. __If you aren't interested in remotely controlling your own computers, you can skip to the [Access and Control Remote Computers](#access-and-control-remote-computers) section in this document.__  
 
 #### Create Agents
 
