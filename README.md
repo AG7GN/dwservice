@@ -1,6 +1,6 @@
 # Computer Remote Control using DWService 
 
-VERSION: 20200412
+VERSION: 20200413
 
 AUTHOR: Steve Magnuson, AG7GN
 
@@ -194,3 +194,7 @@ This section describes how to access and control remote computers using the DWSe
 		1. To exit a remote control session, click on the __circle with the arrow__ icon in the upper right corner.
 		
 1. At any time, you can return to the top level page for this remote computer by clicking the blue tile with the 9 dots in the upper left.
+
+### Notes
+
+- At this time, cut/copy/paste between the client (your web browser) and the server (the computer you are controlling) only works when the remote computer is running Windows.
