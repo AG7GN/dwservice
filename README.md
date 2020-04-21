@@ -51,7 +51,7 @@ In this document, the client refers to the computer controlling the server.  In 
 	
 1. __If you aren't interested in remotely controlling your own computers, you can skip to the [Access and Control Remote Computers](#access-and-control-remote-computers) section in this document.__  
 
-#### (Optional) Create Agents
+#### OPTIONAL: Create Agents
 
 1. If you aren't already, log in to [DWService](https://www.dwservice.net/en/home.html).
 1. On your Home page, click __Agents__.  
@@ -61,7 +61,7 @@ In this document, the client refers to the computer controlling the server.  In 
 1. __IMPORTANT:__ In the lower right corner of each agent "box" is an install code.  You'll need that when you install the agent on the computer you want to control.
 1. Click the __Home__ icon to go back to your Home page.
 
-#### (Optional) Create Agent Groups
+#### OPTIONAL: Create Agent Groups
 
 Agent Groups allow you to put certain agents (remotely controlled computers) into groups.  An agent can be in none or one Agent group.
 
@@ -71,7 +71,7 @@ Agent Groups allow you to put certain agents (remotely controlled computers) int
 1. In each of your Agent's boxes, you'll see three vertical dots (this is called a 'kebab') near the top.  Click the kebab and select __Edit__.
 1. The Group you created earlier should now be available in the dropdown selection.  Select the group you want this agent to be in, then click __Confirm__.  Repeat this step as desired for your other Agents.
 
-#### (Optional) Create Contacts
+#### OPTIONAL: Create Contacts
 
 Contacts are the email addresses of other DWService users.  The email address of the contact must be the email address that person used to create their DWService account.
 
@@ -107,13 +107,13 @@ _If you see a message waiting:_
 1. Click __Yes__ in the "Do you want to accept..." dialog window.
 1. Go to back to the __Home__ page and click __Shares__, then __Incoming Shares__.  The Agent the other user shared with you should be listed there, and if the DWAgent is running on that remote computer, the Agent box should say _available_.  You can now remotely connect to that computer.  More than one Agent may be listed if the other user shared a group with multiple computers.  If the Agent on the remote computer is not running, it will show up as _unavailable_ in your DWService Incoming Shares web page.
 
-### (Optional) Install Agents
+### OPTIONAL: Install Agents
 
 Follow these steps if you want to remotely control your computers.  For each computer you want to control, you'll download and install a __DWAgent__ on that computer.
 
 1.	On the computer you want to control, open a web browser and go to the [download page at DWService](https://www.dwservice.net/en/download.html).
 
-1. Select the DWAgent download appropriate for the computer you are on (the computer you want to control).  Click __DOWNLOAD__ and follow the prompts.
+1. Select the DWAgent download appropriate for the computer you are on (the computer you want to control).  Again, __*MAKE SURE YOU SELECT THE RIGHT DOWNLOAD*__ for the computer you want to control!  It's easy to pick the wrong one!  Click __DOWNLOAD__ and follow the prompts.
 
 1. Locate the downloaded file on your computer and install it in the same way you install other downloaded software.  If there are installation notes included in the download, be sure to read them for important information about installing/using DWAgent your particular computer's operating system.
 
@@ -128,7 +128,7 @@ Follow these steps if you want to remotely control your computers.  For each com
 	
 		1. Open a browser on the Pi or Linux host on which you want to install the DWAgent.
 		1. Go to https://dwservice.net and in the Download box, click "Click here".  _DO NOT_ click the __Download__ button - it may download the wrong file!
-		1. You should now see the Download screen.  Locate the __Raspberry ARM__ or __Linux x86__ download on that screen, and click it's __DOWNLOAD__ button.
+		1. You should now see the Download screen.  Locate the __Raspberry ARM__ or __Linux x86__ (depending on what kind of computer you have) download on that screen, and click it's __DOWNLOAD__ button.
 		1. This will save a file called `dwagent.sh` in your `Downloads` folder.
 		1. Open a terminal and run these commands:
 	
@@ -149,11 +149,11 @@ Follow these steps if you want to remotely control your computers.  For each com
 
 	__Raspberry Pi__ and __Linux__
 
-	- Assuming you installed the Agent as described above, the agent runs automatically in the background.  Nothing more for you to do.
+	- Assuming you installed as described above, the agent runs automatically in the background.  Nothing more for you to do.  __*IMPORTANT:*__ By default the agent runs as root, which means that when the client opens a shell in the web interface, the user is dropped right into root's shell!  This is obviously not secure.  See the __OPTIONAL: Run the DWAgent as a Regular User on Linux__ section later in this document for a way to fix this..
 	
 	__Apple Mac__
 	
-	- Locate the DWAgent.app in your Applications folder and double-click it to run it.  Follow the prompts for further configuration.
+	- Locate the DWAgent.app in your Applications folder and double-click it to run it.  Follow the prompts for further configuration.  FYI - I've found the Mac agent to be lacking.
 	
 	__Windows__
 	
@@ -195,7 +195,7 @@ This section describes how to access and control remote computers using the DWSe
 		
 1. At any time, you can return to the top level page for this remote computer by clicking the blue tile with the 9 dots in the upper left.
 
-### (Optional) Run the DWAgent as a Non-root User on Linux
+### OPTIONAL: Run the DWAgent as a Regular User on Linux
 
 By default, the dwagent runs as root, so that when you start a shell in the DWService web interface, you get a root shell.  That's not good.  Here's how to run the dwagent as another user.  We'll use user `bob` in this example, and `bob` has sudo privileges.   
 
@@ -236,8 +236,13 @@ By default, the dwagent runs as root, so that when you start a shell in the DWSe
 		systemctl --user enable dwagent.service
 		systemctl --user start dwagent.service
 		
-From now on, the dwagent will start as user `bob` at bootup, and if you open a shell in the DWService web interface, it'll be `bob`'s shell, not `root`'s.
+	If you get an error message that says `Failed to connect to bus: No such file or directory`, then run the above `systemctl` commands like this instead:
+	
+		XDG_RUNTIME_DIR=/run/user/$UID systemctl --user enable dwagent.service
+		XDG_RUNTIME_DIR=/run/user/$UID systemctl --user start dwagent.service
+		
+From now on, the `dwagent.service` will start as user `bob` at bootup, and if you open a shell in the DWService web interface, it'll be `bob`'s shell, not `root`'s.
 
 ### Notes
 
-- At this time, cut/copy/paste between the client (your web browser) and the server (the computer you are controlling) only works when the remote computer is running Windows.
+- At this time, cut/copy/paste between the client (your web browser) and the server (the computer you are controlling) only works when the remote computer is running Windows.  However, if you open a shell in the web interface, you can cut/copy/paste between that shell and client.
