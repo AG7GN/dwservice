@@ -1,6 +1,6 @@
 # Computer Remote Control using DWService 
 
-VERSION: 20200413
+VERSION: 20200419
 
 AUTHOR: Steve Magnuson, AG7GN
 
@@ -194,6 +194,49 @@ This section describes how to access and control remote computers using the DWSe
 		1. To exit a remote control session, click on the __circle with the arrow__ icon in the upper right corner.
 		
 1. At any time, you can return to the top level page for this remote computer by clicking the blue tile with the 9 dots in the upper left.
+
+### (Optional) Run the DWAgent as a Non-root User on Linux
+
+By default, the dwagent runs as root, so that when you start a shell in the DWService web interface, you get a root shell.  That's not good.  Here's how to run the dwagent as another user.  We'll use user `bob` in this example, and `bob` has sudo privileges.   
+
+1. Install the agent on your Linux host in the usual way as described above.
+
+1. Stop and disable the service:
+
+		sudo systemctl stop dwagent.service
+		sudo systemctl disable dwagent.service
+		
+1. Make a folder for user level services and move the service file into it.  Run these commands as user `bob`:
+		
+		cd ~
+		mkdir -p .config/systemd/user
+		cd .config/systemd/user/
+		sudo mv /etc/systemd/system/dwagent.service .
+		sudo chown bob:bob dwagent.service
+		
+1. As user `bob`, open `dwagent.service` in an editor and change this line:
+
+		WantedBy=multi-user.target
+
+	to:
+
+		WantedBy=default.target
+	
+1.	Change the ownership of the `/usr/share/dwagent` folder and everything in it to user `bob`:
+
+		cd /usr/share
+		sudo chown -R bob:bob dwagent/
+		
+1.	Allow user `bob` to autostart services even if not logged in:
+
+		sudo loginctl enable-linger bob
+		
+1. Enable and start the user service as user `bob` (not as `root`):
+
+		systemctl --user enable dwagent.service
+		systemctl --user start dwagent.service
+		
+From now on, the dwagent will start as user `bob` at bootup, and if you open a shell in the DWService web interface, it'll be `bob`'s shell, not `root`'s.
 
 ### Notes
 
