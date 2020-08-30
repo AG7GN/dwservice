@@ -1,6 +1,6 @@
 # Computer Remote Control using DWService 
 
-VERSION: 20200817
+VERSION: 20200818
 
 AUTHOR: Steve Magnuson, AG7GN
 
@@ -36,6 +36,7 @@ DWService is an alternative to VNC and TeamViewer.
 1. DWService ONLY works via the "cloud". VNC can work directly to the host you want to control or via the cloud. I use both: VNC for situations where the client and server are both on my network and DWService for situations where I want to control hosts that are not on my network.
 1. VNC has a chat feature that allows multiple users who are controlling the same computer to communicate with each other using a chat window. DWService does not have this feature.
 1. VNC allows you to copy/paste from your client to the computer you are controlling. In DWService, copy/paste only works when the computer being controlled is running Windows.
+1. Both services allow multiple clients to control a computer at a time. However, only VNC provides a way for connected users to see how many users are connected and who they are.
 
 ## Initial Setup
 
