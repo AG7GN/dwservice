@@ -1,6 +1,6 @@
 # Computer Remote Control using DWService 
 
-VERSION: 20200818
+VERSION: 20210810
 
 AUTHOR: Steve Magnuson, AG7GN
 
@@ -261,4 +261,24 @@ This section describes how to access and control remote computers using the DWSe
 
 ## Notes
 
-- At this time, cut/copy/paste between the client (your web browser) and the server (the computer you are controlling) only works when the remote computer is running Windows.  However, if you open a shell in the web interface, you can cut/copy/paste between that shell and client.
+### Cut/Copy/Paste to/from remote Linux hosts
+
+At this time, cut/copy/paste between the client (your web browser) and the server (the computer you are controlling) only works when the remote computer is running Windows.  However, if you open a shell in the DWService web interface, you can cut/copy/paste between that shell and client.
+
+### XWayland
+
+DWService does not work with [XWayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)). If you see __Error: XWayland is not supported__ when connecting to the DWService Screen of a remote Linux host, here's the fix:
+
+1. Open the Shell for this remote host in DWService, or open Terminal if you are directly connected to this host or open an SSH session to the remote host.
+
+1. As root (sudo), edit `/etc/gdm3/custom.conf` and change this line:
+
+		#WaylandEnable=false	
+
+	to:
+		
+		WaylandEnable=false
+
+1. Save and exit your editor, then reboot the remote host.
+
+
