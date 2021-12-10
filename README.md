@@ -1,6 +1,6 @@
 # Computer Remote Control using DWService 
 
-VERSION: 20210810
+VERSION: 20211210
 
 AUTHOR: Steve Magnuson, AG7GN
 
@@ -183,7 +183,7 @@ Follow these steps if you want to remotely control your computers.  For each com
 			
 		Alternatively, you can make the above change by running this command (no editor needed):
 		
-			sed -ie 's/WantedBy=multi-user.target/WantedBy=default.target/' ~/.config/systemd/user/dwagent.service
+			sed -i 's/WantedBy=multi-user.target/WantedBy=default.target/' ~/.config/systemd/user/dwagent.service
 	
 	1.	Change the ownership of the `/usr/share/dwagent` folder and everything in it to user `bob`:
 
