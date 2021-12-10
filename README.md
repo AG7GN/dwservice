@@ -180,11 +180,14 @@ Follow these steps if you want to remotely control your computers.  For each com
 		to:
 
 			WantedBy=default.target
+			
+		Alternatively, you can make the above change by running this command (no editor needed):
+		
+			sed -ie 's/WantedBy=multi-user.target/WantedBy=default.target/' ~/.config/systemd/user/dwagent.service
 	
 	1.	Change the ownership of the `/usr/share/dwagent` folder and everything in it to user `bob`:
 
-			cd /usr/share
-			sudo chown -R bob:bob dwagent/
+			sudo chown -R bob:bob /usr/share/dwagent
 		
 	1.	Allow user `bob` to autostart services even if not logged in:
 
