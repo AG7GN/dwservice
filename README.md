@@ -264,6 +264,20 @@ This section describes how to access and control remote computers using the DWSe
 
 ## Notes
 
+### DWAgent does not display desktop on Linux hosts with only Python3 installed
+
+Solution: remove agent, install Python2 and re-install agent
+
+1. Remove `dwagent` if you've already installed it:
+
+		sudo /usr/share/dwagent/native/dwagsvc stop
+		sudo /usr/share/dwagent/native/dwagsvc delete
+		sudo rm -r -f /usr/share/dwagent
+		sudo rm -f /etc/dwagent
+		sudo apt -y install python2
+		
+1. Install `dwagent` as per the [instructions](#optional-install-agents-if-you-want-to-control-your-own-computers-with-dwservice)
+
 ### Cut/Copy/Paste to/from remote Linux hosts
 
 At this time, cut/copy/paste between the client (your web browser) and the server (the computer you are controlling) only works when the remote computer is running Windows.  However, if you open a shell in the DWService web interface, you can cut/copy/paste between that shell and client.
