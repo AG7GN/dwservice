@@ -268,12 +268,15 @@ This section describes how to access and control remote computers using the DWSe
 
 Solution: remove agent, install Python2 and re-install agent
 
-1. Remove `dwagent` if you've already installed it:
+1. Remove `dwagent` if you've already installed it
 
 		sudo /usr/share/dwagent/native/dwagsvc stop
 		sudo /usr/share/dwagent/native/dwagsvc delete
 		sudo rm -r -f /usr/share/dwagent
 		sudo rm -f /etc/dwagent
+		
+1.	Install Python2
+
 		sudo apt -y install python2
 		
 1. Install `dwagent` as per the [instructions](#optional-install-agents-if-you-want-to-control-your-own-computers-with-dwservice)
