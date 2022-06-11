@@ -1,3 +1,8 @@
+# PLEASE READ!
+
+__I am not in any way affiliated with [DWService](https://www.dwservice.net/en/)!__ The files in this repository are simply my own notes for using DWService. Please don't open any issues or post questions about DWService here. Instead, [contact](https://www.dwservice.net/en/contactus.html) DWService directly for support.
+
+
 # Computer Remote Control using DWService 
 
 VERSION: 20211210
